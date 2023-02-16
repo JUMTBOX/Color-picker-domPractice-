@@ -1,11 +1,17 @@
 const button = document.querySelector("button");
 const h1 = document.querySelector("h1");
 
-button.addEventListener("click", () => {
+function makeRandColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  const randomColor = `rgb(${r},${g},${b})`;
-  document.body.style.backgroundColor = randomColor;
-  h1.innerText = randomColor;
-});
+
+  return `rgb(${r},${g},${b})`;
+}
+function colorize() {
+  h1.innerText = makeRandColor();
+  document.body.style.backgroundColor = makeRandColor();
+  document.body.style.color = makeRandColor();
+}
+
+button.addEventListener("click", colorize);

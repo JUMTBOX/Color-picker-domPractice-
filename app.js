@@ -6,10 +6,11 @@ function makeRandColor() {
   const b = Math.floor(Math.random() * 256);
   return `rgb(${r},${g},${b})`;
 }
+function colorize() {
+  this.style.backgroundColor = makeRandColor();
+  this.style.color = makeRandColor();
+}
 
 for (let btn of btns) {
-  btn.addEventListener("click", () => {
-    btn.style.backgroundColor = makeRandColor();
-    btn.style.color = makeRandColor();
-  });
+  btn.addEventListener("click", colorize);
 }
